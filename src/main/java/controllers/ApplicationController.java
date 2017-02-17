@@ -40,6 +40,15 @@ public class ApplicationController {
 
     }
     
+  public Result sample() {
+        
+        SimplePojo simplePojo = new SimplePojo();
+        simplePojo.content = "Hello chetan";
+
+        return Results.json().render(simplePojo);
+
+    }
+    
     public static class SimplePojo {
 
         public String content;

@@ -15,6 +15,10 @@
  */
 
 package conf;
+import ninja.Result;
+import ninja.Results;
+
+import com.google.inject.Singleton;
 
 
 import ninja.AssetsController;
@@ -26,10 +30,13 @@ public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {  
+    	
+
         
         router.GET().route("/").with(ApplicationController::index);
         router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
-        
+        router.GET().route("/sample").with(ApplicationController::sample);
+
  
         ///////////////////////////////////////////////////////////////////////
         // Assets (pictures / javascript)
@@ -40,7 +47,8 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/.*").with(ApplicationController::index);
+        router.GET().route("/.*").with(() -> Results.redirect("/sample"));
+
     }
 
 }

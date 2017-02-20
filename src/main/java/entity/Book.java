@@ -15,10 +15,6 @@ public class Book {
 	@Id @GeneratedValue
 	@Column(name = "id")
 	private int id;
-	@Column(name = "qty")
-	private int qty;
-	@Column(name = "available")
-	private int available;
 	@Column(name = "name")
 	private String name;
 	@Column(name = "author")
@@ -27,26 +23,13 @@ public class Book {
 	private String category;
 	@Column(name = "description")
 	private String description;
-	
-	
-	public int getAvailable() {
-		return available;
-	}
-	public void setAvailable(int available) {
-		this.available = available;
-	}
+	@Column(name = "price")
+	private String price;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	
-	public int getQty() {
-		return qty;
-	}
-	public void setQty(int qty) {
-		this.qty = qty;
 	}
 	public String getName() {
 		return name;
@@ -72,5 +55,13 @@ public class Book {
 	public void setDescription(String description) {
 		this.description = description;
 	}
+	public String getPrice() {
+		return price;
+	}
+	public void setPrice(String price) {
+		this.price = price;
+	}
+	
+	
 	
 }

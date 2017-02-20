@@ -5,13 +5,16 @@ Library.factory('Library',['$http',function($http){
 	Library.books=[];
 
 	Library.addBook=function (book){
-		for(i in Library.books){
-			if(i == book){
-				return false;
-			}
-		}
-		Library.books.push(book);
-		return true;
+//		for(i in Library.books){
+//			if(i == book){
+//				return false;
+//			}
+//		}
+//		Library.books.push(book);
+		return $http.post('/newBook',book).success(function(data){
+			
+		});
+		
 	}
 	Library.getAllBooks = function(){
 		return $http.get('/viewAllBooks').success(function(data){

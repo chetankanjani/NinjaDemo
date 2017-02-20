@@ -23,31 +23,36 @@
             <tr>
                 <th>Name</th>
                 <th>Author</th>
-                <th>Price</th>
+                <th>Category</th>
                 <th>Description</th>
+                 <th>Price</th>
             </tr>
             <tr ng-repeat="i in books" >
                 <div ng-show="!i.edit">
                     <td ng-show="!i.edit">{{i.name}}</td>
                     <td ng-show="!i.edit">{{i.author}}</td>
-                    <td ng-show="!i.edit">{{i.price}}</td>
+                    <td ng-show="!i.edit">{{i.category}}</td>
                     <td ng-show="!i.edit">{{i.description}}</td>
+                    <td ng-show="!i.edit">{{i.price}}</td>
                     <td ng-show="!i.edit"><input class="btn btn-primary" type="button" value="Edit" data-ng-click="editData(i)" /></td>    
                     <td ng-show="!i.edit"><input class="btn btn-danger" type="button" value="Delete" data-ng-click="DeleteData(i)" /></td>
                 </div>
                 <div ng-show="i.edit">
                     <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.name" required /></td> 
                     <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.author" required /></td>  
-                    <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.price" required/></td>
+                    <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.category" required/></td>
                     <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.description" required/></td>
+                    <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" type="string" data-ng-model="editbook.price" required/></td>
                     <td ng-show="i.edit"><input ng-pattern="/^[a-zA-Z0-9]*$/" class="btn btn-primary" type="button" value="Save" data-ng-click="update(editbook)" /></td>
                 </div>    
             </tr>
             <tr>
                 <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.name" required maxlength="15"/></td>       
                 <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.author" required/></td>         
-                <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.price" required /></td>         
+                <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.category" required /></td>         
                 <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.description" required /></td>  
+                <td><input type="string" ng-pattern="/^[a-zA-Z0-9]*$/" data-ng-model="newbook.price" required /></td>         
+                
                 <td><input class="btn btn-primary" type="button" value="Add" data-ng-click="addData(newbook)" /></td>   
             </tr>
         </table>

@@ -2,13 +2,7 @@ var controller= angular.module('controller', [
     ]);
 
 controller.controller('controller',["$scope","$window",'Library','Book',function ($scope,$window,Library,Book) {
-    function clearModel() {  
-       $scope.newbook.name = '';  
-       $scope.newbook.author = '';  
-       $scope.newbook.price = '';
-       $scope.newbook.description = '';  
-       $scope.newbook.edit=false;
-    } 
+    
     //adding static data
     $scope.edit=false;
     $scope.id=-1;
@@ -33,9 +27,16 @@ controller.controller('controller',["$scope","$window",'Library','Book',function
                 return ;
             }
         }
-        var b={name:book.name,author:book.author,price:book.price,description:book.description,edit:false};
-        Library.addBook(b);
-        clearModel();
+        var b={name:book.name,author:book.author,price:book.price,description:book.description,category:book.category};
+        Library.addBook(b)
+        .then(function(data){
+        	 Library.getAllBooks()
+    	    .then(function(data){
+    	        $scope.books=data.data;
+    	    });
+        });
+       
+        $scope.newbook={};
     } 
     $scope.editData = function(book){
         $scope.id = Library.books.indexOf(book);  

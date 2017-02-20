@@ -37,7 +37,7 @@ public class Routes implements ApplicationRoutes {
         router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
         router.GET().route("/home").with(ApplicationController::home);
         router.GET().route("/viewAllBooks").with(ApplicationController::viewBooks);
-
+        router.POST().route("/newBook").with(ApplicationController::newBook);
 //        router.POST().route("/newBook").with(ApplicationController::newBook);
 
  

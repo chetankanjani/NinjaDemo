@@ -21,12 +21,16 @@ import ninja.Results;
 
 import java.util.List;
 
+
 import entity.Admin;
 import entity.Book;
 import entity.RentBooks;
 import entity.User;
 import javax.persistence.EntityManager;
 import com.google.inject.*;
+import com.google.inject.persist.*;
+
+
 
 @Singleton
 public class ApplicationController {
@@ -50,12 +54,19 @@ public class ApplicationController {
         
         SimplePojo simplePojo = new SimplePojo();
         simplePojo.content = "Hello World! Hello Json!";
-
         return Results.json().render(simplePojo);
-
+    }
+        
+    @Transactional
+    public Result newBook(Book book){
+    	System.out.println(book);
+	    EntityManager entityManager = entitiyManagerProvider.get();
+	    entityManager.persist(book);
+    	return Results.json().render("{success:true}");
     }
     
-  public Result sample() {
+    
+    public Result sample() {
         
         SimplePojo simplePojo = new SimplePojo();
         simplePojo.content = "Hello chetan";

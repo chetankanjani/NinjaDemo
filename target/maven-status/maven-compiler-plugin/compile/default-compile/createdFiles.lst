@@ -1,4 +1,8 @@
 controllers\ApplicationController.class
-controllers\ApplicationController$SimplePojo.class
-conf\Module.class
+entity\Book.class
 conf\Routes.class
+entity\RentBooks.class
+entity\User.class
+controllers\ApplicationController$SimplePojo.class
+entity\Admin.class
+conf\Module.class

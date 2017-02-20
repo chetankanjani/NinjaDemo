@@ -35,7 +35,10 @@ public class Routes implements ApplicationRoutes {
         
         router.GET().route("/").with(ApplicationController::index);
         router.GET().route("/hello_world.json").with(ApplicationController::helloWorldJson);
-        router.GET().route("/sample").with(ApplicationController::sample);
+        router.GET().route("/home").with(ApplicationController::home);
+        router.GET().route("/viewAllBooks").with(ApplicationController::viewBooks);
+
+//        router.POST().route("/newBook").with(ApplicationController::newBook);
 
  
         ///////////////////////////////////////////////////////////////////////
@@ -47,7 +50,7 @@ public class Routes implements ApplicationRoutes {
         ///////////////////////////////////////////////////////////////////////
         // Index / Catchall shows index page
         ///////////////////////////////////////////////////////////////////////
-        router.GET().route("/.*").with(() -> Results.redirect("/sample"));
+//        router.GET().route("/.*").with(() -> Results.redirect("/sample"));
 
     }
 
